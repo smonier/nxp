@@ -1,0 +1,102 @@
+version: "3.7"
+
+networks:
+  nxp-net:
+    ipam:
+      config:
+        - subnet: 172.19.100.0/24
+
+services:
+  openldap:
+    container_name: openldap
+    image: osixia/openldap
+    networks:
+      - nxp-net
+    command: --copy-service -l debug
+    volumes:
+      - ./ldif:/container/service/slapd/assets/config/bootstrap/ldif/custom:ro
+    environment:
+      LDAP_LOG_LEVEL: 256
+      LDAP_ORGANISATION: "Jahia Solutions Group"
+      LDAP_DOMAIN: "jahia.com"
+      LDAP_BASE_DN: "cn=admin,dc=jahia,dc=com"
+      LDAP_ADMIN_PASSWORD: "admin"
+      LDAP_CONFIG_PASSWORD: "config"
+      LDAP_READONLY_USER: "false"
+
+  postgres:
+    container_name: postgres
+    image: postgres
+    networks:
+      - nxp-net
+    environment:
+      POSTGRES_DB: "keycloak"
+      POSTGRES_USER: "keycloak"
+      POSTGRES_PASSWORD: "keycloak"
+
+  keycloak:
+    container_name: keycloak
+    image: jboss/keycloak
+    networks:
+      - nxp-net
+    ports:
+      - "8081:8080"
+    depends_on:
+      - postgres
+      - openldap
+    volumes:
+      - ./realm-jahia.json:/tmp/realm-jahia.json
+    environment:
+      KEYCLOAK_USER: "admin"
+      KEYCLOAK_PASSWORD: "admin"
+      KEYCLOAK_IMPORT: "/tmp/realm-jahia.json"
+      DB_ADDR: "postgres:5432"
+      DB_PASSWORD: "keycloak"
+
+  mariadb:
+    container_name: mariadb
+    image: mariadb
+    networks:
+      - nxp-net
+    command:
+      --character-set-server=utf8mb4
+      --collation-server=utf8mb4_unicode_ci
+      --max_allowed_packet=1024M
+      --transaction-isolation=READ-UNCOMMITTED
+      --innodb-lock-wait-timeout=10
+      --innodb_data_file_path=ibdata1:100M:autoextend
+      --innodb_buffer_pool_size=1024M
+      --innodb_log_file_size=256M
+      --innodb_log_buffer_size=64M
+      --innodb_flush_log_at_trx_commit=1
+    environment:
+      MYSQL_ROOT_PASSWORD: "jahia"
+      MYSQL_DATABASE: "jahia"
+      MYSQL_USER: "jahia"
+      MYSQL_PASSWORD: "jahia"
+
+  jahia:
+    container_name: jahia
+    image: jahia/jahia-ee
+    depends_on:
+      - mariadb
+    networks:
+      - nxp-net
+    ports:
+      - "8080:8080"
+      - "8000:8000"
+    volumes:
+      - ./license.xml:/tmp/license.xml:ro
+      - ./provisioning.yaml:/tmp/provisioning.yaml:ro
+      - ./nxp-jahia-auth-1.0.0-SNAPSHOT.jar:/tmp/nxp-jahia-auth-1.0.0-SNAPSHOT.jar
+    environment:
+      DB_VENDOR: "mariadb"
+      DB_HOST: "mariadb"
+      DB_NAME: "jahia"
+      DB_USER: "jahia"
+      DB_PASS: "jahia"
+      JAHIA_LICENSE_OPTS: "-Djahia.configure.licenseFile=/tmp/license.xml"
+      SUPER_USER_PASSWORD: "root"
+      JPDA: "true"
+      OPERATING_MODE: "production"
+      EXECUTE_PROVISIONING_SCRIPT: "file:/tmp/provisioning.yaml"

@@ -1,0 +1,48 @@
+- addMavenRepository: "https://store.jahia.com/nexus/content/repositories/jahia-public-app-store@id=JahiaStore"
+
+- installBundle: "mvn:org.jahia.modules/ldap/4.6.0"
+  autoStart: true
+- editConfiguration: "org.jahia.services.usermanager.ldap"
+  configIdentifier: "jahia-openldap"
+  properties: 
+    url: "ldap://openldap"
+    public.bind.dn: "cn=admin,dc=jahia,dc=com"
+    public.bind.password: "admin"
+    user.uid.search.name: "dc=jahia,dc=com"
+    group.search.name: "dc=jahia,dc=com"
+    uid.search.attribute: "mail"
+
+- installBundle: "mvn:org.jahia.modules/server-availability-manager/2.7.0"
+  autoStart: true
+- installBundle:
+  - "mvn:org.jahia.modules/jahia-authentication/1.8.0"
+  - "mvn:org.jahia.modules/jahia-oauth/3.3.0"
+  - "file:/tmp/nxp-jahia-auth-1.0.0-SNAPSHOT.jar"
+  - "mvn:org.jahiacommunity.modules/jahia-oauth-keycloak/1.1.3"
+  autoStart: true
+
+- enable: "jahia-oauth-keycloak"
+  site: "systemsite"
+- editConfiguration: "org.jahia.modules.auth"
+  configIdentifier: "systemsite"
+  properties: 
+     KeycloakApi.apiKey: "jahia"
+     KeycloakApi.apiSecret: "jahia-secret"
+     KeycloakApi.scope: "openid"
+     KeycloakApi.baseUrl: "http://docker.for.mac.localhost:8081/auth"
+     KeycloakApi.realm: "jahia"
+     KeycloakApi.callbackUrl: "http://localhost:8080/sites/systemsite/home.keycloakOAuthCallbackAction.do"
+     KeycloakApi.returnUrl: "http://localhost:8080/sites/systemsite/home.oauth-id-redirect.do"
+     KeycloakApi.enabled: "true"
+     siteKey: "systemsite"
+
+# Open bar security
+- editConfiguration: "org.jahia.modules.jahiacsrfguard"
+  configIdentifier: "nxp"
+  properties: 
+    whitelist: "*.do"
+- editConfiguration: "org.jahia.bundles.api.security"
+  properties:
+    security.profile: "open"
+    cors.allowed.headers: "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,CSRFTOKEN,X-Username"
+    cors.allowed.origins: "*"

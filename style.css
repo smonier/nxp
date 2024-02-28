@@ -1,0 +1,81 @@
+/* General styling for the file card */
+.file-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    background-color: #f9f9f9;
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.file-icon {
+    width: 50px;
+    height: auto;
+}
+
+.file-name {
+    font-size: 16px;
+    font-weight: 500;
+    flex-grow: 1;
+}
+
+.meta-toggle {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.meta-toggle:hover {
+    background-color: #0056b3;
+}
+
+.file-metadata {
+    display: none;
+
+    /* other styles */
+}
+
+.file-metadata.show {
+    display: block;
+    /* animations or transitions */
+}
+
+
+/*.file-metadata {
+    display: none;
+    padding: 10px;
+    background-color: #fff;
+    border-top: 1px solid #ddd;
+    position: absolute;
+    bottom: -100%; !* Adjust based on actual content *!
+    left: 0;
+    width: 100%;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}*/
+
+.file-metadata p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+/* Animation for metadata toggle */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

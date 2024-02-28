@@ -1,0 +1,90 @@
+<jahia-licenses>
+  <license-package format="1.2" product="Jahia" release="8.1.0" customTermsAndConditions="false" signature="MC0CFQCEaPEUB7YOZvBp3miPcnbDrIiMBwIURWQYrL+w+WBfWVhiVOrZnt7MrIM=" certAlias="jahiaCert">
+    <license component="org.jahia.core" licensee="INFRA-TEST" signature="MCwCFAYLQ2J6su4I/UV4bDdzSuHiZX1VAhQb+PfUhnyhkK3wSFy1fG/bVr/GCQ==" certAlias="jahiaCert">
+      <limit class="org.jahia.security.license.CommonDaysLeftValidator" name="maxUsageDays" value="1"/>
+      <limit class="org.jahia.security.license.ReleaseNumberValidator" name="release" value="8.1 to 8.2"/>
+    </license>
+    <license component="org.jahia.remotepublish" licensee="INFRA-TEST" signature="MCwCFDQdVT4J4ydOB/UtU1TMBKIyAbudAhQ+VYqSeTF0FhuHP/c/lqXO24v5ZQ==" certAlias="jahiaCert">
+      <limit class="org.jahia.security.license.BooleanValidator" name="enabled" value="true"/>
+    </license>
+    <license component="org.jahia.linkchecker" licensee="INFRA-TEST" signature="MC0CFQCMKfAoOH1TZpsCSMlmNGPSrgEeUQIUDudB4d5MZs74CwWtPa+YbhjNTws=" certAlias="jahiaCert">
+      <limit class="org.jahia.security.license.BooleanValidator" name="enabled" value="true"/>
+    </license>
+    <license component="org.jahia.authentication.ntlm" licensee="INFRA-TEST" signature="MCwCFAaP0MvSXvdky94EW6+gY1RIkFMFAhRfOHzdJaHQWNLS+pWQyqkOjakI9Q==" certAlias="jahiaCert">
+      <limit class="org.jahia.security.license.BooleanValidator" name="enabled" value="true"/>
+    </license>
+    <license component="org.jahia.authentication.jaas" licensee="INFRA-TEST" signature="MC4CFQCCMnzuUdfg7QCyrzkuxzpS1acXzwIVAJQj/hB3TJ58e6cwHUwiTxAXiYni" certAlias="jahiaCert">
+      <limit class="org.jahia.security.license.BooleanValidator" name="enabled" value="true"/>
+    </license>
+    <license component="org.jahia.authentication.spnego" licensee="INFRA-TEST" signature="MC0CFQCSCrNP/FvipEjlQMNzYwcTawSeowIUCbBP30JV2JK42m+AdmVsqzjVSXI=" certAlias="jahiaCert">
+      <limit class="org.jahia.security.license.BooleanValidator" name="enabled" value="true"/>
+    </license>
+    <license component="org.jahia.authentication.cas" licensee="INFRA-TEST" signature="MC0CFEQHmq/JaeWgsDTXjFRPn1HboVTeAhUAjJLOYhF8uE970GxqGCQWcAsAFbw=" certAlias="jahiaCert">
+      <limit class="org.jahia.security.license.BooleanValidator" name="enabled" value="true"/>
+    </license>
+    <license component="org.jahia.manageWorkflow" licensee="INFRA-TEST" signature="MCwCFAtoeqGjkyWl40NSM+HY6izLpOoPAhQgCywNeBUT796TjU2cdmUtEEXj1g==" certAlias="jahiaCert">
+      <limit class="org.jahia.security.license.BooleanValidator" name="enabled" value="true"/>
+    </license>
+    <license component="org.jahia.advancedContentVisibility" licensee="INFRA-TEST" signature="MCwCFGRIyeJGfFvyZwUDUaP8GKqKV2F6AhQJJ9nYQcqeXHV4XGbvz3Jt6myjiA==" certAlias="jahiaCert">
+      <limit class="org.jahia.security.license.BooleanValidator" name="enabled" value="true"/>
+    </license>
+    <license component="org.jahia.privateAppStore" licensee="INFRA-TEST" signature="MCwCFA9aUBI0LZ6Vb2MZ+qJnanMa0KtvAhQDutls3f9PRC9PkM5sKiEGx3culA==" certAlias="jahiaCert">
+      <limit class="org.jahia.security.license.BooleanValidator" name="enabled" value="true"/>
+    </license>
+    <license component="org.jahia.translationGlobalLink" licensee="INFRA-TEST" signature="MCwCFHrTJk7m8F+OUFVXXmInQ8oKAjyqAhRyvEMHHCwfARmcEmJXj5LdZB1lmQ==" certAlias="jahiaCert">
+      <limit class="org.jahia.security.license.BooleanValidator" name="enabled" value="true"/>
+    </license>
+    <license component="org.jahia.portal" licensee="INFRA-TEST" signature="MC0CFQCInPAMy+PEyO0dDBrpzaUwZQDRBQIUaHzCQJSVHj1Nz9yylbQ4cTEbZP4=" certAlias="jahiaCert">
+      <limit class="org.jahia.security.license.BooleanValidator" name="enabled" value="true"/>
+    </license>
+    <license component="org.jahia.cmis" licensee="INFRA-TEST" signature="MCwCFBEb5xZmM2dBLq0r7/n6oB3oxRZlAhQQSC5hToUmahnNxV/Pt6xZplYk8g==" certAlias="jahiaCert">
+      <limit class="org.jahia.security.license.BooleanValidator" name="enabled" value="true"/>
+    </license>
+    <license component="org.jahia.esigate" licensee="INFRA-TEST" signature="MCwCFHLlaJnqPP32Khg/cLsHxMPHcJV6AhQvTNDQpsf5L4Mx41LdLtImzkInzQ==" certAlias="jahiaCert">
+      <limit class="org.jahia.security.license.BooleanValidator" name="enabled" value="true"/>
+    </license>
+    <license component="org.jahia.eCommerce" licensee="INFRA-TEST" signature="MCwCFF6Jstn05L5aZ/GvxVRziHLPaexAAhQ46T89chrt7U0jFINJ5Ovf5nBHNA==" certAlias="jahiaCert">
+      <limit class="org.jahia.security.license.BooleanValidator" name="enabled" value="true"/>
+    </license>
+    <license component="org.jahia.forms" licensee="INFRA-TEST" signature="MC0CFBm1Hun7xEsERjL1VT4Nrt7/fLduAhUAlkxxSVrDST2Fie7B+ASNVK9ufjs=" certAlias="jahiaCert">
+      <limit class="org.jahia.security.license.BooleanValidator" name="enabled" value="true"/>
+    </license>
+    <license component="org.jahia.search-provider-elasticsearch" licensee="INFRA-TEST" signature="MCwCFFRJWz8XsZO+wfocI7A35VgSmnj5AhRfP9jQGmkV0D6fctHABxxKI2INxw==" certAlias="jahiaCert">
+      <limit class="org.jahia.security.license.BooleanValidator" name="enabled" value="true"/>
+    </license>
+    <license component="org.jahia.jExperience" licensee="INFRA-TEST" signature="MC0CFB+ALSuF3RhPKfCkyTMHhVItzMZOAhUAh1GYlqnt18iXZc5RM5tWYPPHsS0=" certAlias="jahiaCert">
+      <limit class="org.jahia.security.license.BooleanValidator" name="enabled" value="true"/>
+    </license>
+    <license component="org.jahia.distributedSessions" licensee="INFRA-TEST" signature="MCwCFF90iiGvHaGBs0AG5VO3IfW//lMNAhQri/aAJ/LWQB+fgpZM6iaZ8g3GFA==" certAlias="jahiaCert">
+      <limit class="org.jahia.security.license.BooleanValidator" name="enabled" value="true"/>
+    </license>
+    <license component="org.jahia.marketoConnector" licensee="INFRA-TEST" signature="MCwCFGOlOZnH+E0ls6IFCyDvwWPk70QJAhR3B1ZLH591WHCo0vz2yi6DSDVLkg==" certAlias="jahiaCert">
+      <limit class="org.jahia.security.license.BooleanValidator" name="enabled" value="true"/>
+    </license>
+    <license component="org.jahia.landingPageFactory" licensee="INFRA-TEST" signature="MC0CFQCS0ZmPn2eabSk4TJg+Jxof8Yox3QIUcgtQR5d2+jipRB1dMC+rnDdONi4=" certAlias="jahiaCert">
+      <limit class="org.jahia.security.license.BooleanValidator" name="enabled" value="true"/>
+    </license>
+    <license component="org.jahia.atInternet" licensee="INFRA-TEST" signature="MCwCFDyIuiuIYjKuqCDS2mZN6oJXq5u3AhR4OSB4txSRK9+CCl8/k98SB5L5eg==" certAlias="jahiaCert">
+      <limit class="org.jahia.security.license.BooleanValidator" name="enabled" value="true"/>
+    </license>
+    <license component="org.jahia.mfGoogleAnalytics" licensee="INFRA-TEST" signature="MCwCFHeKl4IxtS4E8T/QgDEjsQjiFVsPAhRkcFilZCHS175cLvOu2CjDiD/sGA==" certAlias="jahiaCert">
+      <limit class="org.jahia.security.license.BooleanValidator" name="enabled" value="true"/>
+    </license>
+    <license component="org.jahia.oauthLinkedIn" licensee="INFRA-TEST" signature="MCwCFDA0+w7GshwpQIy/4W2n1d2xA9C6AhQNPNyaK8eQasPQlYZVg5LLWP450w==" certAlias="jahiaCert">
+      <limit class="org.jahia.security.license.BooleanValidator" name="enabled" value="true"/>
+    </license>
+    <license component="org.jahia.oauthFacebook" licensee="INFRA-TEST" signature="MCwCFFSmykhv+ARNVp3CUKACBBbrqPbyAhRBYiXC+PUu8N23TeqQjEzjKxBC7A==" certAlias="jahiaCert">
+      <limit class="org.jahia.security.license.BooleanValidator" name="enabled" value="true"/>
+    </license>
+    <license component="org.jahia.oauthGoogle" licensee="INFRA-TEST" signature="MCwCFDzJBOugEzx0cx+ZAX/k+yCPXANUAhR/lLrcyCwVY0w4ac6MoUlt8/RpGw==" certAlias="jahiaCert">
+      <limit class="org.jahia.security.license.BooleanValidator" name="enabled" value="true"/>
+    </license>
+    <license component="org.jahia.oauthConnector" licensee="INFRA-TEST" signature="MCwCFH4ADb8H10CEz91ylt/ue1Mg1MPdAhR/iIaxQL+qzRVN4fhPSNKLfJO3Fg==" certAlias="jahiaCert">
+      <limit class="org.jahia.security.license.BooleanValidator" name="enabled" value="true"/>
+    </license>
+    <license component="org.jahia.localSiteManager" licensee="INFRA-TEST" signature="MC0CFQCJqtAxpCe1JPwYUvgPGIvYtRxXAwIUQwF50wrmI25jplXy21x1TwF0mns=" certAlias="jahiaCert">
+      <limit class="org.jahia.security.license.BooleanValidator" name="enabled" value="true"/>
+    </license>
+  </license-package>
+</jahia-licenses>
+

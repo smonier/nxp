@@ -1,0 +1,13 @@
+mutation {
+    jcr(workspace: EDIT) {
+        mutateNode(pathOrId: "/sites/systemsite/files/jahia-vfs") {
+            mutateChildren {
+                revokeRoles(
+                    roleNames: ["reader"]
+                    principalType: GROUP
+                    principalName: "users"
+                )
+            }
+        }
+    }
+}

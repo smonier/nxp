@@ -4,22 +4,25 @@
     <meta charset="utf-8">
     <title>NXP Semi Conductors</title>
     <link rel="stylesheet" href="/style.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+          integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
 
     <script src="/script.js"></script>
 
 
 </head>
 <body>
-<h1>Jahia / NXP</h1>
-<div id="connect" style="display: none;">
-    <a href="http://localhost:8080/start">Connect me!</a>
+<div class="center-block">
+    <h1>Jahia / NXP</h1>
+    <div id="connect" style="display: none;">
+        <button class="meta-toggle" onclick='window.location.href = "http://localhost:8080/start"'>Let's connect
+        </button>
+    </div>
+    <div id="main" style="display: none;">
+        <h2><i class="fas fa-user-tie"></i> Hello <span id="username">{username}</span></h2>
+    </div>
 </div>
-<div id="main" style="display: none;">
-    <h2>Hello <span id="username">{username}</span></h2>
-    <div id="documentsList"></div>
-
-</div>
+<div id="documentsList"></div>
 
 <script>
     const getDocuments = async username => {
@@ -68,7 +71,7 @@
         });
         if (response.ok) {
             const {data} = await response.json();
-            document.getElementById('username').innerText = data.currentUser?.displayName +'  ('+data.currentUser?.email+')';
+            document.getElementById('username').innerText = data.currentUser?.displayName + '  (' + data.currentUser?.email + ')';
             data.jcr?.nodeByPath?.descendants?.nodes?.forEach(node => {
                 const {path, name, uuid, type, lastModif, children} = node;
                 const mimeTypeValue = children.nodes.find(n => n.mimeType)?.mimeType?.value || 'unknown';
@@ -79,7 +82,7 @@
                 const buttonId = `meta-toggle-${uuid}`;
                 const metadataDivId = `file-metadata-${uuid}`;
 
-                const htmlString = `<div class="file-card"><i class="${iconClass}" aria-hidden="true"></i><span class="file-name"><a href="http://localhost:8080/files/live${path}" title="${name}">${name}</a></span><button id="${buttonId}" class="meta-toggle" onclick="toggleMetadata('${buttonId}', '${metadataDivId}')">Show Metadata</button><div id="${metadataDivId}" class="file-metadata" style="display: none;"><p>Path: ${path}</p><p>UUID: ${uuid}</p><p>Type: ${type.value}</p><p>MIME Type: ${mimeTypeValue}</p><p>Last Modified: ${formattedLastModif}</p></div></div>`;
+                const htmlString = `<div class="file-card"><i class="${iconClass} fa-2x" aria-hidden="true"></i><span class="file-name"><a href="http://localhost:8080/files/live${path}" title="${name}">${name}</a></span><button id="${buttonId}" class="meta-toggle" onclick="toggleMetadata('${buttonId}', '${metadataDivId}')">Show Metadata</button><div id="${metadataDivId}" class="file-metadata" style="display: none;"><p>Path: ${path}</p><p>UUID: ${uuid}</p><p>Type: ${type.value}</p><p>MIME Type: ${mimeTypeValue}</p><p>Last Modified: ${formattedLastModif}</p></div></div>`;
 
                 document.getElementById('documentsList').innerHTML += htmlString;
             });
@@ -88,49 +91,49 @@
     }
 
 
-        /*        const getInfo = async (e, path) => {
-            e.preventDefault();
+    /*        const getInfo = async (e, path) => {
+        e.preventDefault();
 
-            const response = await fetch('http://localhost:8080/modules/graphql', {
-                headers: {
-                    'X-Username': username,
-                    'Content-Type': 'application/json'
-                },
-                method: 'POST',
-                body: JSON.stringify({
-                    query: `query getInfo($path: String!) {
-                      jcr(workspace: LIVE) {
-                        nodeByPath(path: $path) {
-                          path
-                          name
-                          type: property(name: "jcr:primaryType") { value }
-                        }
-                      }
-                    }`,
-                    variables: {path}
-                })
-            });
-            message = `An error occured`;
-            if (response.ok) {
-                const {data} = await response.json();
-                message = `${data.jcr?.nodeByPath?.name}: ${data.jcr?.nodeByPath?.type.value}\n${data.jcr?.nodeByPath?.path}`
-            }
-            alert(message);
-
-            return false;
-        };
-*/
-        const params = new URLSearchParams(window.location.search);
-        const username = params.get('username');
-        if (username) {
-            document.getElementById('main').style.display = 'block';
-            document.getElementById('username').innerText = username;
-            document.getElementById('connect').style.display = 'none';
-            getDocuments(username);
-        } else {
-            document.getElementById('main').style.display = 'none';
-            document.getElementById('connect').style.display = 'block';
+        const response = await fetch('http://localhost:8080/modules/graphql', {
+            headers: {
+                'X-Username': username,
+                'Content-Type': 'application/json'
+            },
+            method: 'POST',
+            body: JSON.stringify({
+                query: `query getInfo($path: String!) {
+                  jcr(workspace: LIVE) {
+                    nodeByPath(path: $path) {
+                      path
+                      name
+                      type: property(name: "jcr:primaryType") { value }
+                    }
+                  }
+                }`,
+                variables: {path}
+            })
+        });
+        message = `An error occured`;
+        if (response.ok) {
+            const {data} = await response.json();
+            message = `${data.jcr?.nodeByPath?.name}: ${data.jcr?.nodeByPath?.type.value}\n${data.jcr?.nodeByPath?.path}`
         }
+        alert(message);
+
+        return false;
+    };
+*/
+    const params = new URLSearchParams(window.location.search);
+    const username = params.get('username');
+    if (username) {
+        document.getElementById('main').style.display = 'block';
+        document.getElementById('username').innerText = username;
+        document.getElementById('connect').style.display = 'none';
+        getDocuments(username);
+    } else {
+        document.getElementById('main').style.display = 'none';
+        document.getElementById('connect').style.display = 'block';
+    }
 
 </script>
 

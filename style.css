@@ -79,3 +79,14 @@
         transform: translateY(0);
     }
 }
+
+.center-block {
+    width: 80%; /* or your preferred width */
+    margin: 0 auto; /* centers the block */
+    padding: 20px; /* optional, for internal spacing */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* subtle shadow */
+    border-radius: 10px; /* optional, for rounded corners */
+    text-align: center; /* Centers the text horizontally */
+    justify-content: center; /* Centers the container's children horizontally in the case of flex items */
+    align-items: center; /* Centers the container's children vertically for flex containers */
+}
